@@ -30,3 +30,9 @@ class TestBotBalancer(unittest.TestCase):
     def test_start(self):
         balancer = BotBalancer(self.instructions)
         balancer.start()
+        self.assertIn('bot 2 compares values [2, 5]', balancer.log)
+
+    def test_outputs(self):
+        balancer = BotBalancer(self.instructions)
+        balancer.start()
+        self.assertEqual(3, balancer.outputs[2])
